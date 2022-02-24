@@ -4,3 +4,7 @@
   --light-text-color: #f6f6f6;
   --text-color: #8785a2;
 }
+
+body {
+  margin: 0;
+}
