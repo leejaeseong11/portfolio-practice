@@ -9,15 +9,142 @@
       src="https://kit.fontawesome.com/d9fe784aec.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Shizuru&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <nav class="navbar">
-      <div>
+      <div class="navbar-title">
         <i class="fa-solid fa-bars"></i>
         <a href="#">Hyangham</a>
       </div>
     </nav>
-    <img src="./src/assets/main/main1.JPG" alt="main_img" width="100%" />
+    <section class="main-section">
+      <article class="main-banner">
+        <div class="banner-title">Hyangham</div>
+        <img
+          src="./src/assets/main/main1.JPG"
+          alt="banner-img"
+          width="100%"
+          height="100%"
+        />
+      </article>
+      <article class="main-diary">
+        <div class="diary-top">
+          <div class="diary-top-title">개발 일지</div>
+          <button class="diary-top-write-button">글 작성</button>
+          <div>(암호:</div>
+          <input type="password" class="diary-top-write-password" />
+          <div>)</div>
+        </div>
+        <h2>Firebase Realtime Database Example</h2>
+        <input
+          type="text"
+          id="message"
+          placeholder="메세지를 입력하세요"
+          size="40"
+        />
+        <button type="button" onclick="savedata()">Save Data</button>
+        <hr />
+        <h3>Result</h3>
+        <textarea rows="10" cols="60" id="result" readonly></textarea>
+        <p>
+          <button type="button" onclick="deleteall()">Delete All</button>
+        </p>
+        <div class="diary-main">
+          <div class="diary-main-title">첫 개발 일지</div>
+          <div class="diary-main-timestamp">작성 일자</div>
+        </div>
+      </article>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
+        authDomain: 'hyangham-portfolio.firebaseapp.com',
+        databaseURL: 'https://hyangham-portfolio-default-rtdb.firebaseio.com',
+        projectId: 'hyangham-portfolio',
+        storageBucket: 'hyangham-portfolio.appspot.com',
+        messagingSenderId: '810886149707',
+        appId: '1:810886149707:web:ce1aad1dd89163bab17fce',
+      };
+      firebase.initializeApp(config);
+
+      //DOM
+      var messageField = document.getElementById('message');
+      var result = document.getElementById('result');
+
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      //고유 아이디 만들기
+      function guid() {
+        function s4() {
+          return (((1 + Math.random()) * 0x10000) | 0)
+            .toString(16)
+            .substring(1);
+        }
+        return (
+          s4() +
+          s4() +
+          '-' +
+          s4() +
+          '-' +
+          s4() +
+          '-' +
+          s4() +
+          '-' +
+          s4() +
+          s4() +
+          s4()
+        );
+      }
+
+      //메세지 읽기
+      var messageRef = database.ref('message');
+      messageRef.on('child_added', function (snapshot) {
+        var data = snapshot.val();
+        var message = data.text;
+        if (message != undefined) {
+          result.value += message + '\n';
+        }
+      });
+
+      //전부 삭제되면 결과창의 내용도 지워 준다.
+      var messageRef = database.ref('message');
+      messageRef.on('child_removed', function (snapshot) {
+        result.value = '';
+        messageField.value = '';
+      });
+
+      //메세지 저장
+      function savedata() {
+        var uuid = guid();
+        var message = messageField.value;
+        if (message == '') {
+          alert('메시지를 입력하세요');
+          return true;
+        }
+        database.ref('message/' + uuid).set({
+          text: message,
+        });
+        messageField.value = '';
+      }
+
+      //삭제
+      function deleteall() {
+        database.ref('message').remove();
+      }
+    </script>
   </body>
 </html>
