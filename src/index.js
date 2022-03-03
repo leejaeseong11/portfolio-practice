@@ -64,6 +64,8 @@ messageRef.on('child_removed', function (snapshot) {
 });
 
 //메세지 저장
+// 해리포터와 마법사의 돌  1, 2
+// 덤블도어의 수련회 메타에 타락할 수 밖에 없었던 슬리데린..
 function savedata() {
   var uuid = guid();
   var message = messageField.value;
