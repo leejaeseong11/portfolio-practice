@@ -15,6 +15,10 @@ a {
   text-decoration: none;
 }
 
+a.banner-icons-links {
+  color: var(--light-text-color);
+}
+
 .navbar-title {
   font-size: 24px;
   font-weight: bold;
@@ -39,9 +43,16 @@ a {
 }
 
 .banner-icons {
+  font-size: 30px;
+  text-align: center;
+  color: var(--light-text-color);
 }
 
-.diary-top-title {
+.banner-title-text {
+  margin-bottom: 50px;
+}
+
+.diary-top-title a i {
   font-size: 30px;
 }
 
