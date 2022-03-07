@@ -75,32 +75,40 @@
       </article>
       <article class="main-diary">
         <div class="diary-top">
-          <div class="diary-top-title">개발 일지</div>
-          <button class="diary-top-write-button">글 작성</button>
-          <div>(암호:</div>
-          <input type="password" class="diary-top-write-password" />
-          <div>)</div>
+          <h2 class="diary-top-title">개발 일지</h2>
+          <i
+            class="fa-solid fa-pencil"
+            style="color: coral; font-size: 24px"
+          ></i>
+          <a class="diary-top-write">글쓰기</a>
         </div>
-        <h2>Firebase Realtime Database Example</h2>
-        <input
-          type="text"
-          id="message"
-          placeholder="메세지를 입력하세요"
-          size="40"
-        />
-        <button type="button" onclick="savedata()">Save Data</button>
-        <hr />
-        <h3>Result</h3>
-        <textarea rows="10" cols="60" id="result" readonly></textarea>
-        <p>
-          <button type="button" onclick="deleteall()">Delete All</button>
-        </p>
         <div class="diary-main">
           <div class="diary-main-title">첫 개발 일지</div>
           <div class="diary-main-timestamp">작성 일자</div>
         </div>
       </article>
     </section>
+    <aside>
+      <div class="diary-form">
+        <h2>개발 일지 작성하기</h2>
+        <div>(암호:</div>
+        <input type="password" class="diary-top-write-password" />
+        <div>)</div>
+        <input
+          type="text"
+          id="message"
+          placeholder="메세지를 입력하세요"
+          size="40"
+        />
+      </div>
+      <button type="button" onclick="savedata()">작성하기</button>
+      <hr />
+      <h3>Result</h3>
+      <textarea rows="10" cols="60" id="result" readonly></textarea>
+      <p>
+        <button type="button" onclick="deleteall()">삭제하기</button>
+      </p>
+    </aside>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
       // Initialize Firebase

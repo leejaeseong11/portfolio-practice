@@ -1,11 +1,13 @@
 :root {
-  --background-color: #ffc7c7;
-  --accent-color: #ffe2e2;
-  --light-text-color: #f6f6f6;
-  --text-color: #8785a2;
+  --background-color: #ffffff;
+  --accent-color: #ffe8df;
+  --light-text-color: #f0f0f0;
+  --text-color: #888888;
 }
 
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   font-family: 'Nanum Gothic', sans-serif;
 }
@@ -18,6 +20,10 @@ a {
 a.banner-icons-links {
   color: var(--light-text-color);
   margin-left: 12px;
+}
+
+a.diary-top-write:hover {
+  text-decoration: underline;
 }
 
 .navbar-title {
@@ -35,6 +41,7 @@ a.banner-icons-links {
 .main-banner {
   position: relative;
   height: 100vh;
+  padding-bottom: 16px;
 }
 
 .banner-title {
@@ -64,6 +71,20 @@ a.banner-icons-links {
 
 .diary-top {
   display: flex;
+  align-items: center;
+}
+
+.diary-top-title {
+  padding: 8px 16px;
+}
+
+.diary-top-write {
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 24px;
+  height: fit-content;
+  justify-content: center;
+  margin-left: 8px;
 }
 
 .diary-main {
