@@ -22,10 +22,6 @@ a.banner-icons-links {
   margin-left: 12px;
 }
 
-a.diary-top-write:hover {
-  text-decoration: underline;
-}
-
 .navbar-title {
   font-size: 30px;
   font-weight: bold;
@@ -65,6 +61,10 @@ a.diary-top-write:hover {
   margin-bottom: 50px;
 }
 
+.diary-top-title {
+  padding-right: 16px;
+}
+
 .diary-top-title a i {
   font-size: 30px;
 }
@@ -74,7 +74,7 @@ a.diary-top-write:hover {
   align-items: center;
 }
 
-.diary-top-title {
+.main-diary {
   padding: 8px 16px;
 }
 
@@ -84,9 +84,36 @@ a.diary-top-write:hover {
   font-size: 24px;
   height: fit-content;
   justify-content: center;
-  margin-left: 8px;
+  border: none;
+  background-color: var(--background-color);
+}
+
+.diary-top-write:hover {
+  text-decoration: underline;
 }
 
 .diary-main {
   display: flex;
+}
+
+#diary-form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 15px;
+  border: 3px solid var(--accent-color);
+  background-color: var(--background-color);
+  padding: 10px;
+}
+
+.diary-form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+  max-width: 800px;
+}
+
+.diary-form-text {
+  font-weight: bold;
+  padding-bottom: 8px;
 }

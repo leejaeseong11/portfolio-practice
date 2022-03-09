@@ -16,12 +16,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/style.css" />
+    <script type="text/javascript" src="./src/index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script type="module" src="./src/firebase.js"></script>
   </head>
   <body>
     <nav class="navbar">
       <div class="navbar-title">
         <i class="fa-solid fa-bars"></i>
-        <a class="navbar-text" href="#">Hyangham</a>
+        <a class="navbar-text" href="#">HYANGHAM PORTFOLIO</a>
       </div>
     </nav>
     <section class="main-section">
@@ -76,118 +79,48 @@
       <article class="main-diary">
         <div class="diary-top">
           <h2 class="diary-top-title">개발 일지</h2>
-          <i
-            class="fa-solid fa-pencil"
-            style="color: coral; font-size: 24px"
-          ></i>
-          <a class="diary-top-write">글쓰기</a>
+          <i class="fa-solid fa-pencil" style="color: coral; font-size: 24px">
+          </i>
+          <button class="diary-top-write" onclick="openForm()">글쓰기</button>
         </div>
         <div class="diary-main">
-          <div class="diary-main-title">첫 개발 일지</div>
-          <div class="diary-main-timestamp">작성 일자</div>
+          <div class="diary-main-title">제목</div>
+          <div class="diary-main-timestamp">작성일</div>
+          <p id="diary-title-result"></p>
+          <p id="diary-title-contents"></p>
+          <p id="diary-title-timestamp"></p>
+          <p>
+            <button type="button" onclick="deleteall()">삭제하기</button>
+          </p>
         </div>
+        <hr />
       </article>
     </section>
-    <aside>
-      <div class="diary-form">
-        <h2>개발 일지 작성하기</h2>
-        <div>(암호:</div>
-        <input type="password" class="diary-top-write-password" />
-        <div>)</div>
-        <input
-          type="text"
-          id="message"
-          placeholder="메세지를 입력하세요"
-          size="40"
-        />
-      </div>
-      <button type="button" onclick="savedata()">작성하기</button>
-      <hr />
-      <h3>Result</h3>
-      <textarea rows="10" cols="60" id="result" readonly></textarea>
-      <p>
-        <button type="button" onclick="deleteall()">삭제하기</button>
-      </p>
+    <aside id="diary-form-popup">
+      <h2>개발 일지 작성하기</h2>
+      <form class="diary-form">
+        <label for="diary-form-title" class="diary-form-text">제목</label>
+        <input type="text" id="diary-form-title" />
+        <div style="height: 12px"></div>
+        <label for="diary-form-contents" class="diary-form-text">내용</label>
+        <textarea id="diary-form-contents" rows="10" cols="200"></textarea>
+      </form>
+      <label for="diary-form-password" class="diary-form-text">암호</label>
+      <input type="password" id="diary-form-password" />
+      <button
+        class="diary-form-write-button"
+        type="button"
+        onclick="savedata()"
+      >
+        작성하기
+      </button>
+      <button
+        class="diary-form-cancel-button"
+        type="button"
+        onclick="closeForm()"
+      >
+        취소하기
+      </button>
     </aside>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
-        authDomain: 'hyangham-portfolio.firebaseapp.com',
-        databaseURL: 'https://hyangham-portfolio-default-rtdb.firebaseio.com',
-        projectId: 'hyangham-portfolio',
-        storageBucket: 'hyangham-portfolio.appspot.com',
-        messagingSenderId: '810886149707',
-        appId: '1:810886149707:web:ce1aad1dd89163bab17fce',
-      };
-      firebase.initializeApp(config);
-
-      //DOM
-      var messageField = document.getElementById('message');
-      var result = document.getElementById('result');
-
-      // Get a reference to the database service
-      var database = firebase.database();
-
-      //고유 아이디 만들기
-      function guid() {
-        function s4() {
-          return (((1 + Math.random()) * 0x10000) | 0)
-            .toString(16)
-            .substring(1);
-        }
-        return (
-          s4() +
-          s4() +
-          '-' +
-          s4() +
-          '-' +
-          s4() +
-          '-' +
-          s4() +
-          '-' +
-          s4() +
-          s4() +
-          s4()
-        );
-      }
-
-      //메세지 읽기
-      var messageRef = database.ref('message');
-      messageRef.on('child_added', function (snapshot) {
-        var data = snapshot.val();
-        var message = data.text;
-        if (message != undefined) {
-          result.value += message + '\n';
-        }
-      });
-
-      //전부 삭제되면 결과창의 내용도 지워 준다.
-      var messageRef = database.ref('message');
-      messageRef.on('child_removed', function (snapshot) {
-        result.value = '';
-        messageField.value = '';
-      });
-
-      //메세지 저장
-      function savedata() {
-        var uuid = guid();
-        var message = messageField.value;
-        if (message == '') {
-          alert('메시지를 입력하세요');
-          return true;
-        }
-        database.ref('message/' + uuid).set({
-          text: message,
-        });
-        messageField.value = '';
-      }
-
-      //삭제
-      function deleteall() {
-        database.ref('message').remove();
-      }
-    </script>
   </body>
 </html>
