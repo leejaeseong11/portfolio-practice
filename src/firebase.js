@@ -1,21 +1,19 @@
 // Firebase 설정을 위한 import
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js';
+// import { firebase } from 'https://www.gstatic.com/firebasejs/4.11.0/firebase.js';
 
-// Firebase app 설정
-const firebaseConfig = {
-  apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
-  authDomain: 'hyangham-portfolio.firebaseapp.com',
-  projectId: 'hyangham-portfolio',
-  storageBucket: 'hyangham-portfolio.appspot.com',
-  messagingSenderId: '810886149707',
-  appId: '1:810886149707:web:ce1aad1dd89163bab17fce',
-  measurementId: 'G-R6177BGGPB',
-};
+// // Firebase app 설정
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
+//   authDomain: 'hyangham-portfolio.firebaseapp.com',
+//   databaseURL: 'https://hyangham-portfolio-default-rtdb.firebaseio.com',
+//   projectId: 'hyangham-portfolio',
+//   storageBucket: 'hyangham-portfolio.appspot.com',
+//   messagingSenderId: '810886149707',
+//   appId: '1:810886149707:web:ce1aad1dd89163bab17fce',
+// };
 
-// Firebase 초기화
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// // Firebase 초기화
+// firebase.initializeApp(firebaseConfig);
 var diaryTitleField = document.getElementById('diary-form-title');
 var diaryTitleResult = document.getElementById('diary-title-result');
 

@@ -17,10 +17,31 @@
     />
     <link rel="stylesheet" href="./src/style.css" />
     <script type="text/javascript" src="./src/index.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script type="module" src="./src/firebase.js"></script>
+    <!-- <script type="module" src="./src/firebase-init.js"></script>
+    <script type="text/javascript" src="./src/firebase.js"></script> -->
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"
+    ></script>
+    <script defer src="./src/firebase-init.js"></script>
   </head>
   <body>
+    <div id="main">
+      <h2>Firebase Realtime Database Example</h2>
+      <input
+        type="text"
+        id="message"
+        placeholder="메세지를 입력하세요"
+        size="40"
+      />
+      <button type="button" onclick="savedata()">Save Data</button>
+      <hr />
+      <h3>Result</h3>
+      <textarea rows="10" cols="60" id="result" readonly></textarea>
+      <p>
+        <button type="button" onclick="deleteall()">Delete All</button>
+      </p>
+    </div>
     <nav class="navbar">
       <div class="navbar-title">
         <i class="fa-solid fa-bars"></i>
