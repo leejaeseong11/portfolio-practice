@@ -23,7 +23,7 @@
       defer
       src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"
     ></script>
-    <script defer src="./src/firebase-init.js"></script>
+    <script defer src="./src/firebase.js"></script>
   </head>
   <body>
     <div id="main">
@@ -107,9 +107,9 @@
         <div class="diary-main">
           <div class="diary-main-title">제목</div>
           <div class="diary-main-timestamp">작성일</div>
-          <p id="diary-title-result"></p>
-          <p id="diary-title-contents"></p>
-          <p id="diary-title-timestamp"></p>
+          <p id="diary-result-title"></p>
+          <p id="diary-result-contents"></p>
+          <p id="diary-result-timestamp"></p>
           <p>
             <button type="button" onclick="deleteall()">삭제하기</button>
           </p>
