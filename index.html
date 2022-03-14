@@ -26,22 +26,6 @@
     <script defer src="./src/firebase.js"></script>
   </head>
   <body>
-    <div id="main">
-      <h2>Firebase Realtime Database Example</h2>
-      <input
-        type="text"
-        id="message"
-        placeholder="메세지를 입력하세요"
-        size="40"
-      />
-      <button type="button" onclick="savedata()">Save Data</button>
-      <hr />
-      <h3>Result</h3>
-      <textarea rows="10" cols="60" id="result" readonly></textarea>
-      <p>
-        <button type="button" onclick="deleteall()">Delete All</button>
-      </p>
-    </div>
     <nav class="navbar">
       <div class="navbar-title">
         <i class="fa-solid fa-bars"></i>
@@ -111,7 +95,31 @@
           <p id="diary-result-contents"></p>
           <p id="diary-result-timestamp"></p>
           <p>
-            <button type="button" onclick="deleteall()">삭제하기</button>
+            <button
+              type="button"
+              onclick="deleteall()"
+              id="diary-delete-button"
+            >
+              삭제하기
+            </button>
+            <dialog id="diary-delete-dialog">
+              <form method="dialog">
+                <div>
+                  "<span id="diary-delete-title">글의 제목</span>"을 정말로
+                  삭제하시겠습니까?
+                </div>
+                <label for="diary-delete-password" class="diary-delete-text">
+                  암호
+                </label>
+                <input type="password" id="diary-delete-password" />
+                <menu>
+                  <button value="cancel">취소</button>
+                  <button id="diary-delete-confirm" value="default">
+                    삭제
+                  </button>
+                </menu>
+              </form>
+            </dialog>
           </p>
         </div>
         <hr />

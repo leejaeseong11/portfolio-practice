@@ -1,3 +1,4 @@
+var masterPassword = '1234';
 // Initialize Firebase
 const config = {
   apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
@@ -73,29 +74,54 @@ diaryRef.on('child_removed', function (snapshot) {
 
 // 메세지 저장
 function savedata() {
-  var uuid = guid();
-  var diaryTitle = diaryTitleField.value;
-  var diaryContents = diaryContentsField.value;
-  var diaryTimestamp = Date.now();
-  if (diaryTitle == '') {
-    alert('제목을 입력하세요');
-    return true;
-  } else if (diaryContents == '') {
-    alert('내용을 입력하세요');
-    return true;
+  var password = document.getElementById('diary-form-password');
+  if (password.value == '') {
+    alert('암호를 입력하세요');
+  } else if (password.value == masterPassword) {
+    var uuid = guid();
+    var diaryTitle = diaryTitleField.value;
+    var diaryContents = diaryContentsField.value;
+    var diaryTimestamp = Date.now();
+    if (diaryTitle == '') {
+      alert('제목을 입력하세요');
+      return true;
+    } else if (diaryContents == '') {
+      alert('내용을 입력하세요');
+      return true;
+    }
+    database.ref('diary/' + uuid).set({
+      title: diaryTitle,
+      contents: diaryContents,
+      timestamp: diaryTimestamp,
+    });
+    diaryTitleField.value = '';
+    diaryContentsField.value = '';
+    password.value = '';
+  } else {
+    alert('암호를 틀렸습니다');
+    password.value = '';
   }
-  database.ref('diary/' + uuid).set({
-    title: diaryTitle,
-    contents: diaryContents,
-    timestamp: diaryTimestamp,
-  });
-  diaryTitleField.value = '';
-  diaryContentsField.value = '';
 }
 
 // 삭제
 function deleteall() {
-  database.ref('diary').remove();
+  var diaryDeleteButton = document.getElementById('diary-delete-button');
+  var dialog = document.getElementById('diary-delete-dialog');
+  var diaryDeletePasswrod = document.getElementById('diary-delete-password');
+  diaryDeleteButton.addEventListener('click', function onOpen() {
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    } else {
+      alert('삭제 기능을 사용할 수 없는 브라우저입니다');
+    }
+  });
+  dialog.addEventListener('close', function onClose() {
+    if (diaryDeletePasswrod.value == masterPassword) {
+      database.ref('diary').remove();
+    } else {
+      alert('암호를 틀렸습니다');
+    }
+  });
 }
 
 // 해리포터와 마법사의 돌  1, 2
