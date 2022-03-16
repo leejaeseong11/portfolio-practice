@@ -105,21 +105,22 @@ function savedata() {
 
 // 삭제
 function deleteall() {
-  var diaryDeleteButton = document.getElementById('diary-delete-button');
   var dialog = document.getElementById('diary-delete-dialog');
   var diaryDeletePasswrod = document.getElementById('diary-delete-password');
-  diaryDeleteButton.addEventListener('click', function onOpen() {
-    if (typeof dialog.showModal === 'function') {
-      dialog.showModal();
-    } else {
-      alert('삭제 기능을 사용할 수 없는 브라우저입니다');
-    }
-  });
-  dialog.addEventListener('close', function onClose() {
+  var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
+
+  if (typeof dialog.showModal === 'function') {
+    dialog.showModal();
+  } else {
+    alert('삭제 기능을 사용할 수 없는 브라우저입니다');
+  }
+
+  diaryDeleteConfirm.addEventListener('click', function onClose() {
     if (diaryDeletePasswrod.value == masterPassword) {
       database.ref('diary').remove();
     } else {
       alert('암호를 틀렸습니다');
+      return;
     }
   });
 }

@@ -91,37 +91,34 @@
         <div class="diary-main">
           <div class="diary-main-title">제목</div>
           <div class="diary-main-timestamp">작성일</div>
-          <p id="diary-result-title"></p>
-          <p id="diary-result-contents"></p>
-          <p id="diary-result-timestamp"></p>
-          <p>
-            <button
-              type="button"
-              onclick="deleteall()"
-              id="diary-delete-button"
-            >
-              삭제하기
-            </button>
-            <dialog id="diary-delete-dialog">
-              <form method="dialog">
-                <div>
-                  "<span id="diary-delete-title">글의 제목</span>"을 정말로
-                  삭제하시겠습니까?
-                </div>
-                <label for="diary-delete-password" class="diary-delete-text">
-                  암호
-                </label>
-                <input type="password" id="diary-delete-password" />
-                <menu>
-                  <button value="cancel">취소</button>
-                  <button id="diary-delete-confirm" value="default">
-                    삭제
-                  </button>
-                </menu>
-              </form>
-            </dialog>
-          </p>
+          <br />
         </div>
+        <div class="diary-result">
+          <div id="diary-result-title"></div>
+          <div id="diary-result-contents"></div>
+          <div id="diary-result-timestamp"></div>
+          <button type="button" onclick="deleteall()" id="diary-delete-button">
+            삭제하기
+          </button>
+        </div>
+        <p>
+          <dialog id="diary-delete-dialog">
+            <form method="dialog">
+              <div>
+                "<span id="diary-delete-title">글의 제목</span>"을 정말로
+                삭제하시겠습니까?
+              </div>
+              <label for="diary-delete-password" class="diary-delete-text">
+                암호
+              </label>
+              <input type="password" id="diary-delete-password" />
+              <menu>
+                <button value="cancel" id="diary-delete-cancel">취소</button>
+                <button id="diary-delete-confirm" value="default">삭제</button>
+              </menu>
+            </form>
+          </dialog>
+        </p>
         <hr />
       </article>
     </section>
