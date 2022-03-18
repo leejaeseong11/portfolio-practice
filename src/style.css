@@ -92,8 +92,14 @@ a.banner-icons-links {
   text-decoration: underline;
 }
 
-.diary-main {
+.diary-main,
+.diary-result {
   display: flex;
+}
+
+.diary-main-title,
+.diary-result-title {
+  padding-right: 20px;
 }
 
 #diary-form-popup {

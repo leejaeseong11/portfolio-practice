@@ -1,4 +1,4 @@
-var masterPassword = '1234';
+var masterPassword = '1';
 // Initialize Firebase
 const config = {
   apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
@@ -65,13 +65,6 @@ diaryRef.on('child_added', function (snapshot) {
   }
 });
 
-// 전부 삭제되면 결과창의 내용도 지워 준다.
-diaryRef.on('child_removed', function (snapshot) {
-  diaryTitleResultField.innerHTML = '';
-  diaryContentsResultField.innerHTML = '';
-  diaryTimestampResultField.innerHTML = '';
-});
-
 // 메세지 저장
 function savedata() {
   var password = document.getElementById('diary-form-password');
@@ -81,7 +74,13 @@ function savedata() {
     var uuid = guid();
     var diaryTitle = diaryTitleField.value;
     var diaryContents = diaryContentsField.value;
-    var diaryTimestamp = Date.now();
+    var diaryTimestamp = new Date();
+
+    var year = diaryTimestamp.getFullYear();
+    var month = ('0' + (diaryTimestamp.getMonth() + 1)).slice(-2);
+    var day = ('0' + diaryTimestamp.getDate()).slice(-2);
+
+    console.log(year);
     if (diaryTitle == '') {
       alert('제목을 입력하세요');
       return true;
@@ -92,7 +91,7 @@ function savedata() {
     database.ref('diary/' + uuid).set({
       title: diaryTitle,
       contents: diaryContents,
-      timestamp: diaryTimestamp,
+      timestamp: year + '-' + month + '-' + day,
     });
     diaryTitleField.value = '';
     diaryContentsField.value = '';
@@ -115,15 +114,23 @@ function deleteall() {
     alert('삭제 기능을 사용할 수 없는 브라우저입니다');
   }
 
-  diaryDeleteConfirm.addEventListener('click', function onClose() {
+  diaryDeleteConfirm.addEventListener('click', function onClose(e) {
     if (diaryDeletePasswrod.value == masterPassword) {
       database.ref('diary').remove();
     } else {
+      console.log('??');
       alert('암호를 틀렸습니다');
-      return;
+      e.stopPropagation();
     }
   });
 }
+
+// 전부 삭제되면 결과창의 내용도 지워 준다.
+diaryRef.on('child_removed', function (snapshot) {
+  diaryTitleResultField.innerHTML = '';
+  diaryContentsResultField.innerHTML = '';
+  diaryTimestampResultField.innerHTML = '';
+});
 
 // 해리포터와 마법사의 돌  1, 2
 // 덤블도어의 수련회 메타에 타락할 수 밖에 없었던 슬리데린..

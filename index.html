@@ -95,12 +95,12 @@
         </div>
         <div class="diary-result">
           <div id="diary-result-title"></div>
-          <div id="diary-result-contents"></div>
           <div id="diary-result-timestamp"></div>
           <button type="button" onclick="deleteall()" id="diary-delete-button">
             삭제하기
           </button>
         </div>
+        <div id="diary-result-contents"></div>
         <p>
           <dialog id="diary-delete-dialog">
             <form method="dialog">
@@ -113,8 +113,8 @@
               </label>
               <input type="password" id="diary-delete-password" />
               <menu>
-                <button value="cancel" id="diary-delete-cancel">취소</button>
                 <button id="diary-delete-confirm" value="default">삭제</button>
+                <button value="cancel" id="diary-delete-cancel">취소</button>
               </menu>
             </form>
           </dialog>
