@@ -96,6 +96,7 @@ function savedata() {
     diaryTitleField.value = '';
     diaryContentsField.value = '';
     password.value = '';
+    document.getElementById('diary-form-popup').style.display = 'none';
   } else {
     alert('암호를 틀렸습니다');
     password.value = '';
@@ -107,7 +108,7 @@ function deleteall() {
   var dialog = document.getElementById('diary-delete-dialog');
   var diaryDeletePasswrod = document.getElementById('diary-delete-password');
   var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
-
+  // todo: https://stackoverflow.com/questions/25864259/how-to-close-the-new-html-dialog-tag-by-clicking-on-its-backdrop
   if (typeof dialog.showModal === 'function') {
     dialog.showModal();
   } else {
@@ -118,9 +119,9 @@ function deleteall() {
     if (diaryDeletePasswrod.value == masterPassword) {
       database.ref('diary').remove();
     } else {
+      e.preventDefault();
       console.log('??');
       alert('암호를 틀렸습니다');
-      e.stopPropagation();
     }
   });
 }

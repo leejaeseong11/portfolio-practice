@@ -120,11 +120,13 @@ a.banner-icons-links {
 }
 
 #diary-delete-button,
-.diary-form-cancel-button {
+.diary-form-cancel-button,
+#diary-delete-confirm {
   background-color: var(--accent-color);
 }
 
-.diary-form-write-button {
+.diary-form-write-button,
+#diary-delete-cancel {
   background-color: var(--light-text-color);
 }
 
