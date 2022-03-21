@@ -106,24 +106,12 @@ function savedata() {
 // 삭제
 function deleteall() {
   var dialog = document.getElementById('diary-delete-dialog');
-  var diaryDeletePasswrod = document.getElementById('diary-delete-password');
-  var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
-  // todo: https://stackoverflow.com/questions/25864259/how-to-close-the-new-html-dialog-tag-by-clicking-on-its-backdrop
+
   if (typeof dialog.showModal === 'function') {
     dialog.showModal();
   } else {
     alert('삭제 기능을 사용할 수 없는 브라우저입니다');
   }
-
-  diaryDeleteConfirm.addEventListener('click', function onClose(e) {
-    if (diaryDeletePasswrod.value == masterPassword) {
-      database.ref('diary').remove();
-    } else {
-      e.preventDefault();
-      console.log('??');
-      alert('암호를 틀렸습니다');
-    }
-  });
 }
 
 // 전부 삭제되면 결과창의 내용도 지워 준다.
@@ -133,5 +121,17 @@ diaryRef.on('child_removed', function (snapshot) {
   diaryTimestampResultField.innerHTML = '';
 });
 
+// 개발 일지 dialog 삭제 기능
+function onClose() {
+  if (diaryDeletePasswrod.value == masterPassword) {
+    database.ref('diary').remove();
+  } else {
+    alert('암호를 틀렸습니다');
+  }
+}
+
+var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
+var diaryDeletePasswrod = document.getElementById('diary-delete-password');
+diaryDeleteConfirm.addEventListener('click', onClose);
 // 해리포터와 마법사의 돌  1, 2
 // 덤블도어의 수련회 메타에 타락할 수 밖에 없었던 슬리데린..
