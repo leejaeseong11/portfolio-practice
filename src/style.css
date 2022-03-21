@@ -95,6 +95,7 @@ a.banner-icons-links {
 .diary-main,
 .diary-result {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .diary-main-title,
@@ -119,7 +120,7 @@ a.banner-icons-links {
   max-width: 800px;
 }
 
-#diary-delete-button,
+.diary-delete-button,
 .diary-form-cancel-button,
 #diary-delete-confirm {
   background-color: var(--accent-color);

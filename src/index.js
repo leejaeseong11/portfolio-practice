@@ -11,5 +11,6 @@ var diaryResultTitle = document.getElementById('diary-result-title');
 diaryResultTitle.addEventListener('click', () => {
   var diaryResultContents = document.getElementById('diary-result-contents');
 
-  diaryResultContents.style.display = 'none';
+  diaryResultContents.style.display =
+    diaryResultContents.style.display == 'none' ? 'block' : 'none';
 });

@@ -45,6 +45,15 @@ function guid() {
   );
 }
 
+// 개발 일지 삭제 버튼 생성
+function createDiaryDeleteButton() {
+  var deleteButton = document.createElement('button');
+  deleteButton.setAttribute('type', 'button');
+  deleteButton.setAttribute('onclick', 'deleteall()');
+  deleteButton.setAttribute('class', 'diary-delete-button');
+  deleteButton.innerHTML('삭제');
+}
+
 // 개발 일지 읽기
 var diaryRef = database.ref('diary');
 diaryRef.on('child_added', function (snapshot) {
@@ -52,17 +61,32 @@ diaryRef.on('child_added', function (snapshot) {
   var diaryTitle = data.title;
   var diaryContents = data.contents;
   var diaryTimestamp = data.timestamp;
-  if (diaryTitle != undefined) {
-    diaryTitleResultField.innerHTML += diaryTitle + '\n';
-  }
 
-  if (diaryContents != undefined) {
-    diaryContentsResultField.innerHTML += diaryContents + '\n';
-  }
+  var newDiaryTitle = document.createElement('p');
+  newDiaryTitle.setAttribute('class', 'pTag');
+  newDiaryTitle.innerHTML = diaryTitle;
+  diaryTitleResultField.appendChild(newDiaryTitle);
 
-  if (diaryTimestamp != undefined) {
-    diaryTimestampResultField.innerHTML += diaryTimestamp + '\n';
-  }
+  var newDiaryTimestamp = document.createElement('p');
+  newDiaryTimestamp.setAttribute('class', 'pTag');
+  newDiaryTimestamp.innerHTML = diaryTimestamp;
+  diaryTimestampResultField.appendChild(newDiaryTimestamp);
+
+  var newDiaryContents = document.createElement('p');
+  newDiaryContents.setAttribute('class', 'pTag');
+  newDiaryContents.innerHTML = diaryContents;
+  diaryContentsResultField.appendChild(newDiaryContents);
+  // if (diaryTitle != undefined) {
+  //   diaryTitleResultField.innerHTML += diaryTitle + '\n';
+  // }
+
+  // if (diaryContents != undefined) {
+  //   diaryContentsResultField.innerHTML += diaryContents + '\n';
+  // }
+
+  // if (diaryTimestamp != undefined) {
+  //   diaryTimestampResultField.innerHTML += diaryTimestamp + '\n';
+  // }
 });
 
 // 메세지 저장
