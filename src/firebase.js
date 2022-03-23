@@ -15,6 +15,7 @@ firebase.initializeApp(config);
 // Firebase 초기화
 var diaryTitleField = document.getElementById('diary-form-title');
 var diaryContentsField = document.getElementById('diary-form-contents');
+var diaryResult = document.getElementById('diary-result');
 var diaryTitleResultField = document.getElementById('diary-result-title');
 var diaryContentsResultField = document.getElementById('diary-result-contents');
 var diaryTimestampResultField = document.getElementById(
@@ -45,15 +46,6 @@ function guid() {
   );
 }
 
-// 개발 일지 삭제 버튼 생성
-function createDiaryDeleteButton() {
-  var deleteButton = document.createElement('button');
-  deleteButton.setAttribute('type', 'button');
-  deleteButton.setAttribute('onclick', 'deleteall()');
-  deleteButton.setAttribute('class', 'diary-delete-button');
-  deleteButton.innerHTML('삭제');
-}
-
 // 개발 일지 읽기
 var diaryRef = database.ref('diary');
 diaryRef.on('child_added', function (snapshot) {
@@ -62,8 +54,10 @@ diaryRef.on('child_added', function (snapshot) {
   var diaryContents = data.contents;
   var diaryTimestamp = data.timestamp;
   var diaryKey = snapshot.key;
-  var newDiaryTitle = document.createElement('p');
-  newDiaryTitle.setAttribute('class', 'diary-result-contents-one');
+  var newDiaryResultTop = document.createElement('div');
+  newDiaryResultTop.setAttribute('class', 'diary-result-top');
+  var newDiaryTitle = document.createElement('div');
+  newDiaryTitle.setAttribute('class', 'diary-result-title');
   newDiaryTitle.setAttribute('id', diaryKey);
   newDiaryTitle.innerHTML = diaryTitle;
   newDiaryTitle.addEventListener('click', () => {
@@ -72,16 +66,28 @@ diaryRef.on('child_added', function (snapshot) {
     diaryResultContentOne.style.display =
       diaryResultContentOne.style.display == 'none' ? 'block' : 'none';
   });
-  diaryTitleResultField.appendChild(newDiaryTitle);
+  newDiaryResultTop.appendChild(newDiaryTitle);
 
-  var newDiaryTimestamp = document.createElement('p');
+  var newDiaryTimestamp = document.createElement('div');
+  newDiaryTimestamp.setAttribute('class', 'diary-result-timestamp');
   newDiaryTimestamp.innerHTML = diaryTimestamp;
-  diaryTimestampResultField.appendChild(newDiaryTimestamp);
+  newDiaryResultTop.appendChild(newDiaryTimestamp);
 
-  var newDiaryContents = document.createElement('p');
+  var diaryDeleteButton = document.createElement('button');
+  diaryDeleteButton.setAttribute('type', 'button');
+  diaryDeleteButton.setAttribute('class', 'diary-delete-button');
+  diaryDeleteButton.innerHTML = '삭제';
+  // todo: fix delete bug
+  diaryDeleteButton.addEventListener('click', deleteall);
+  newDiaryResultTop.appendChild(diaryDeleteButton);
+
+  diaryResult.appendChild(newDiaryResultTop);
+
+  var newDiaryContents = document.createElement('div');
+  newDiaryContents.setAttribute('class', 'diary-result-contents');
   newDiaryContents.setAttribute('id', 'contents-' + diaryKey);
   newDiaryContents.innerHTML = diaryContents;
-  diaryContentsResultField.appendChild(newDiaryContents);
+  diaryResult.appendChild(newDiaryContents);
 });
 
 // 메세지 저장
@@ -99,7 +105,6 @@ function savedata() {
     var month = ('0' + (diaryTimestamp.getMonth() + 1)).slice(-2);
     var day = ('0' + diaryTimestamp.getDate()).slice(-2);
 
-    console.log(year);
     if (diaryTitle == '') {
       alert('제목을 입력하세요');
       return true;

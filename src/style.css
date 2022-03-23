@@ -63,6 +63,7 @@ a.banner-icons-links {
 
 .diary-top-title {
   padding-right: 16px;
+  font-size: 36px;
 }
 
 .diary-top-title a i {
@@ -81,7 +82,7 @@ a.banner-icons-links {
 .diary-top-write {
   color: var(--text-color);
   cursor: pointer;
-  font-size: 24px;
+  font-size: 36px;
   height: fit-content;
   justify-content: center;
   border: none;
@@ -93,14 +94,37 @@ a.banner-icons-links {
 }
 
 .diary-main,
-.diary-result {
+.diary-result-top {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .diary-main-title,
+.diary-main-timestamp {
+  font-size: 24px;
+}
+.diary-result-title,
+.diary-result-timestamp {
+  font-size: 18px;
+  font-weight: bold;
+}
+.diary-main-title,
 .diary-result-title {
-  padding-right: 20px;
+  flex: 6;
+  padding-bottom: 8px;
+}
+
+.diary-main-timestamp,
+.diary-result-timestamp {
+  flex: 1;
+  padding-bottom: 8px;
+}
+
+.diary-result-timestamp {
+  padding-left: 250px;
+}
+
+.diary-result-contents {
+  padding-bottom: 8px;
 }
 
 #diary-form-popup {
