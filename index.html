@@ -30,91 +30,109 @@
         <a class="navbar-text" href="#">HYANGHAM PORTFOLIO</a>
       </div>
     </nav>
-    <section class="main-section">
-      <article class="main-banner">
-        <div class="banner-title">
-          <div class="banner-title-text">Hyangham</div>
-          <div class="banner-icons">
-            <a
-              href="https://blog.naver.com/easeon11"
-              target="_blank"
-              class="banner-icons-links"
-            >
-              <i class="fa-brands fa-blogger"></i>
-            </a>
-            <a
-              href="https://www.instagram.com/hyangham11/"
-              target="_blank"
-              class="banner-icons-links"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a
-              href="https://github.com/leejaeseong11"
-              target="_blank"
-              class="banner-icons-links"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/%EC%9E%AC%EC%84%B1-%EC%9D%B4-412743223/"
-              target="_blank"
-              class="banner-icons-links"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a
-              href="mailto:easeon78@gmail.com"
-              target="_blank"
-              class="banner-icons-links"
-            >
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </div>
+    <article class="main-banner">
+      <div class="banner-title">
+        <div class="banner-title-text">Hyangham</div>
+        <div class="banner-icons">
+          <a
+            href="https://blog.naver.com/easeon11"
+            target="_blank"
+            class="banner-icons-links"
+          >
+            <i class="fa-brands fa-blogger"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/hyangham11/"
+            target="_blank"
+            class="banner-icons-links"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/leejaeseong11"
+            target="_blank"
+            class="banner-icons-links"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/%EC%9E%AC%EC%84%B1-%EC%9D%B4-412743223/"
+            target="_blank"
+            class="banner-icons-links"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="mailto:easeon78@gmail.com"
+            target="_blank"
+            class="banner-icons-links"
+          >
+            <i class="fa-solid fa-envelope"></i>
+          </a>
         </div>
-        <img
-          src="./src/assets/main/main1.JPG"
-          alt="banner-img"
-          width="100%"
-          height="100%"
-        />
-      </article>
-      <article class="main-diary">
-        <div class="diary-top">
-          <h2 class="diary-top-title">개발 일지</h2>
-          <i class="fa-solid fa-pencil" style="color: coral; font-size: 24px">
-          </i>
-          <button class="diary-top-write" onclick="openForm()">글쓰기</button>
+      </div>
+      <img
+        src="./src/assets/main/main1.JPG"
+        alt="banner-img"
+        width="100%"
+        height="100%"
+      />
+    </article>
+    <article class="main-portfolio">
+      <div class="portfolio-top">
+        <h2 class="portfolio-top-title">프로젝트</h2>
+      </div>
+      <hr />
+      <div class="portfoli-main">
+        <div class="portfolio-contents">
+          <a
+            href="https://leejaeseong11.github.io/react-todo-list/"
+            target="_blank"
+          >
+            <img
+              src="./src/assets/portfolio/react-todolist-app.png"
+              alt="react-todo-list"
+            />
+          </a>
+          <div class="portfolio-contents-name">할 일 리스트</div>
+          <hr />
         </div>
-        <div class="diary-main">
-          <div class="diary-main-title">제목</div>
-          <div class="diary-main-timestamp">작성일</div>
-        </div>
-        <hr />
-        <!--todo: fix css layout-->
-        <div id="diary-result"></div>
-        <div>
-          <dialog id="diary-delete-dialog">
-            <form method="dialog">
-              <div>
-                "<span id="diary-delete-title">글의 제목</span>"을 정말로
-                삭제하시겠습니까?
-              </div>
-              <br />
-              <label for="diary-delete-password" class="diary-delete-text">
-                암호
-              </label>
-              <input type="password" id="diary-delete-password" />
-              <menu>
-                <button id="diary-delete-confirm" value="default">삭제</button>
-                <button value="cancel" id="diary-delete-cancel">취소</button>
-              </menu>
-            </form>
-          </dialog>
-        </div>
-        <hr />
-      </article>
-    </section>
+      </div>
+    </article>
+    <article class="main-article">
+      <div class="diary-top">
+        <h2 class="diary-top-title">개발 일지</h2>
+        <i class="fa-solid fa-pencil" style="color: coral; font-size: 24px">
+        </i>
+        <button class="diary-top-write" onclick="openForm()">글쓰기</button>
+      </div>
+      <div class="diary-main">
+        <div class="diary-main-title">제목</div>
+        <div class="diary-main-timestamp">작성일</div>
+      </div>
+      <hr />
+      <div id="diary-result"></div>
+      <div>
+        <dialog id="diary-delete-dialog">
+          <form method="dialog">
+            <div>
+              "<span id="diary-delete-title">글의 제목</span>"을 정말로
+              삭제하시겠습니까?
+            </div>
+            <br />
+            <label for="diary-delete-password" class="diary-delete-text">
+              암호
+            </label>
+            <input type="password" id="diary-delete-password" />
+            <menu>
+              <button id="diary-delete-confirm" value="default">삭제</button>
+              <button value="cancel" id="diary-delete-cancel">취소</button>
+            </menu>
+          </form>
+        </dialog>
+      </div>
+      <hr />
+    </article>
     <aside id="diary-form-popup">
       <h2>개발 일지 작성하기</h2>
       <form class="diary-form">

@@ -61,9 +61,19 @@ a.banner-icons-links {
   margin-bottom: 50px;
 }
 
-.diary-top-title {
+.portfolio-top,
+.diary-top {
+  padding: 8px 16px;
+}
+
+.diary-top-title,
+.portfolio-top-title {
   padding-right: 16px;
   font-size: 36px;
+}
+
+.portfolio-contents-name:hover {
+  text-decoration: underline;
 }
 
 .diary-top-title a i {
@@ -73,10 +83,6 @@ a.banner-icons-links {
 .diary-top {
   display: flex;
   align-items: center;
-}
-
-.main-diary {
-  padding: 8px 16px;
 }
 
 .diary-top-write {
@@ -98,9 +104,21 @@ a.banner-icons-links {
   display: flex;
 }
 
+.diary-result-title,
+.diary-result-contents {
+  padding-left: 16px;
+}
+.diary-delete-button {
+  margin-right: 16px;
+}
+
 .diary-main-title,
 .diary-main-timestamp {
   font-size: 24px;
+  padding-left: 16px;
+}
+.diary-result-title:hover {
+  text-decoration: underline;
 }
 .diary-result-title,
 .diary-result-timestamp {
@@ -109,7 +127,7 @@ a.banner-icons-links {
 }
 .diary-main-title,
 .diary-result-title {
-  flex: 6;
+  flex: 5;
   padding-bottom: 8px;
 }
 
@@ -125,6 +143,7 @@ a.banner-icons-links {
 
 .diary-result-contents {
   padding-bottom: 8px;
+  background-color: var(--light-text-color);
 }
 
 #diary-form-popup {
