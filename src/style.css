@@ -62,12 +62,16 @@ a.banner-icons-links {
 }
 
 .portfolio-top,
-.diary-top {
+.diary-top,
+.book-top {
+  margin-top: 100px;
   padding: 8px 16px;
 }
 
 .diary-top-title,
-.portfolio-top-title {
+.portfolio-top-title,
+.book-top-title {
+  text-align: center;
   padding-right: 16px;
   font-size: 36px;
 }
@@ -177,4 +181,9 @@ a.banner-icons-links {
 .diary-form-text {
   font-weight: bold;
   padding-bottom: 8px;
+}
+
+.portfolio-contents,
+.book-contents {
+  margin: 24px 24px;
 }
