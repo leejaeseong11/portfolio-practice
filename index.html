@@ -21,6 +21,7 @@
       src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"
     ></script>
     <script defer src="./src/firebase-diary.js"></script>
+    <script defer src="./src/firebase-book.js"></script>
     <script defer type="text/javascript" src="./src/index.js"></script>
   </head>
   <body>
@@ -136,6 +137,9 @@
     <article class="main-article">
       <div class="book-top">
         <h2 class="book-top-title">독서 기록</h2>
+        <i class="fa-solid fa-pencil" style="color: coral; font-size: 24px">
+        </i>
+        <button class="diary-top-write" onclick="openForm()">후기 쓰기</button>
       </div>
       <hr />
       <div class="book-contents">
@@ -145,7 +149,7 @@
           width="300px"
           height="300px"
         />
-        <div class="portfolio-contents-name">해리포터 마법사의 돌</div>
+        <div class="book-contents-title">해리포터 마법사의 돌</div>
       </div>
       <hr />
     </article>
