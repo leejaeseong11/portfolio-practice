@@ -78,7 +78,7 @@ diaryRef.on('child_added', function (snapshot) {
   diaryDeleteButton.setAttribute('class', 'diary-delete-button');
   diaryDeleteButton.innerHTML = '삭제';
   // todo: fix delete bug
-  diaryDeleteButton.addEventListener('click', deleteall);
+  diaryDeleteButton.addEventListener('click', deleteDiaryData);
   newDiaryResultTop.appendChild(diaryDeleteButton);
 
   diaryResult.appendChild(newDiaryResultTop);
@@ -91,7 +91,7 @@ diaryRef.on('child_added', function (snapshot) {
 });
 
 // 메세지 저장
-function savedata() {
+function saveDiaryData() {
   var password = document.getElementById('diary-form-password');
   if (password.value == '') {
     alert('암호를 입력하세요');
@@ -128,7 +128,7 @@ function savedata() {
 }
 
 // 삭제
-function deleteall() {
+function deleteDiaryData() {
   var dialog = document.getElementById('diary-delete-dialog');
 
   if (typeof dialog.showModal === 'function') {
