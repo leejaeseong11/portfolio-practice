@@ -62,15 +62,12 @@ a.banner-icons-links {
 }
 
 .portfolio-top,
-.diary-top,
 .book-top {
   margin-top: 100px;
   padding: 8px 16px;
 }
 
-.diary-top-title,
-.portfolio-top-title,
-.book-top-title {
+.article-top-title {
   text-align: center;
   padding-right: 16px;
   font-size: 36px;
@@ -80,13 +77,11 @@ a.banner-icons-links {
   text-decoration: underline;
 }
 
-.diary-top-title a i {
-  font-size: 30px;
-}
-
-.diary-top {
+.article-top {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .diary-top-write {
