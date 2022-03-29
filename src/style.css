@@ -84,7 +84,7 @@ a.banner-icons-links {
   justify-content: space-between;
 }
 
-.diary-top-write {
+.article-top-write {
   color: var(--text-color);
   cursor: pointer;
   font-size: 36px;
@@ -94,7 +94,7 @@ a.banner-icons-links {
   background-color: var(--background-color);
 }
 
-.diary-top-write:hover {
+.article-top-write:hover {
   text-decoration: underline;
 }
 

@@ -1,7 +1,7 @@
-function openForm() {
+function openDiaryForm() {
   document.getElementById('diary-form-popup').style.display = 'block';
 }
 
-function closeForm() {
+function closeDiaryForm() {
   document.getElementById('diary-form-popup').style.display = 'none';
 }
