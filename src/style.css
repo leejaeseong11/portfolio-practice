@@ -145,7 +145,7 @@ a.banner-icons-links {
   background-color: var(--light-text-color);
 }
 
-#diary-form-popup {
+.aside-form-popup {
   display: none;
   position: fixed;
   bottom: 0px;
@@ -155,7 +155,7 @@ a.banner-icons-links {
   padding: 10px;
 }
 
-.diary-form {
+.form-popup {
   display: flex;
   flex-direction: column;
   padding-bottom: 8px;
@@ -163,17 +163,17 @@ a.banner-icons-links {
 }
 
 .diary-delete-button,
-.diary-form-cancel-button,
+.form-cancel-button,
 #diary-delete-confirm {
   background-color: var(--accent-color);
 }
 
-.diary-form-write-button,
+.form-write-button,
 #diary-delete-cancel {
   background-color: var(--light-text-color);
 }
 
-.diary-form-text {
+.form-text {
   font-weight: bold;
   padding-bottom: 8px;
 }

@@ -151,7 +151,7 @@
         <h2 class="article-top-title">독서 기록</h2>
         <button
           class="article-top-write"
-          onclick="openDiaryForm()"
+          onclick="openBookForm()"
           style="font-size: 16px"
         >
           <i class="fa-solid fa-pencil" style="color: coral; font-size: 16px">
@@ -171,28 +171,46 @@
       </div>
       <hr />
     </article>
-    <aside id="diary-form-popup">
+    <aside id="diary-form-popup" class="aside-form-popup">
       <h2>개발 일지 작성하기</h2>
-      <form class="diary-form">
-        <label for="diary-form-title" class="diary-form-text">제목</label>
+      <form class="form-popup">
+        <label for="diary-form-title" class="form-text">제목</label>
         <input type="text" id="diary-form-title" />
         <div style="height: 12px"></div>
-        <label for="diary-form-contents" class="diary-form-text">내용</label>
+        <label for="diary-form-contents" class="form-text">내용</label>
         <textarea id="diary-form-contents" rows="10" cols="200"></textarea>
       </form>
-      <label for="diary-form-password" class="diary-form-text">암호</label>
+      <label for="diary-form-password" class="form-text">암호</label>
       <input type="password" id="diary-form-password" />
-      <button
-        class="diary-form-write-button"
-        type="button"
-        onclick="saveDiaryData()"
-      >
+      <button class="form-write-button" type="button" onclick="saveDiaryData()">
         작성하기
       </button>
       <button
-        class="diary-form-cancel-button"
+        class="form-cancel-button"
         type="button"
         onclick="closeDiaryForm()"
+      >
+        취소하기
+      </button>
+    </aside>
+    <aside id="book-form-popup" class="aside-form-popup">
+      <h2>하루 30p! 독서 리뷰</h2>
+      <form class="form-popup">
+        <label for="book-form-title" class="form-text">제목</label>
+        <input type="text" id="book-form-title" />
+        <div style="height: 12px"></div>
+        <label for="book-form-contents" class="form-text">내용</label>
+        <textarea id="book-form-contents" rows="10" cols="200"></textarea>
+      </form>
+      <label for="book-form-password" class="form-text">암호</label>
+      <input type="password" id="book-form-password" />
+      <button class="form-write-button" type="button" onclick="saveDiaryData()">
+        작성하기
+      </button>
+      <button
+        class="form-cancel-button"
+        type="button"
+        onclick="closeBookForm()"
       >
         취소하기
       </button>
