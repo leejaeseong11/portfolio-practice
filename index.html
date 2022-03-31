@@ -156,7 +156,7 @@
         >
           <i class="fa-solid fa-pencil" style="color: coral; font-size: 16px">
           </i>
-          후기 쓰기
+          리뷰 쓰기
         </button>
       </div>
       <hr />
@@ -194,14 +194,28 @@
       </button>
     </aside>
     <aside id="book-form-popup" class="aside-form-popup">
-      <h2>하루 30p! 독서 리뷰</h2>
+      <h2>[하루 30p] 독서 리뷰</h2>
       <form class="form-popup">
-        <label for="book-form-title" class="form-text">제목</label>
+        <label for="book-form-title" class="form-text">책 이름 </label>
         <input type="text" id="book-form-title" />
         <div style="height: 12px"></div>
-        <label for="book-form-contents" class="form-text">내용</label>
-        <textarea id="book-form-contents" rows="10" cols="200"></textarea>
+        <label for="book-form-contents" class="form-text">리뷰 내용</label>
+        <input id="book-form-contents" rows="10" cols="200" />
       </form>
+      <div class="box">
+        <span class="filetype">
+          <span class="file-text"></span>
+          <span class="file-btn">찾아보기</span>
+          <span class="file-select"
+            ><input
+              type="file"
+              class="input-file"
+              size="3"
+              onchange="uploadChange(this);"
+          /></span>
+        </span>
+      </div>
+      <br />
       <label for="book-form-password" class="form-text">암호</label>
       <input type="password" id="book-form-password" />
       <button class="form-write-button" type="button" onclick="saveDiaryData()">

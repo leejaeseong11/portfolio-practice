@@ -168,6 +168,18 @@ a.banner-icons-links {
   background-color: var(--accent-color);
 }
 
+.filebox input[type='file'] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .form-write-button,
 #diary-delete-cancel {
   background-color: var(--light-text-color);
@@ -181,4 +193,61 @@ a.banner-icons-links {
 .portfolio-contents,
 .book-contents {
   margin: 24px 24px;
+}
+
+.box {
+  margin: 50px auto;
+  width: 500px;
+}
+
+.filetype {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  *margin-right: 4px;
+}
+
+.filetype * {
+  vertical-align: middle;
+}
+
+.filetype .file-text {
+  position: relative;
+  width: 350px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  height: 20px;
+  background-color: #ecefef;
+  margin: 0;
+  border: 1px solid #cdd3d4;
+  line-height: 20px;
+  z-index: 10;
+}
+
+.filetype .file-select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  overflow: hidden;
+}
+
+.filetype .file-select .input-file {
+  width: 60px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 20px;
+}
+
+.filetype .file-text + .file-btn {
+  display: inline-block;
+  background-color: #cdd3d4;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 15px;
+  color: #fff !important;
+  cursor: pointer;
+  *margin-left: 4px;
 }
