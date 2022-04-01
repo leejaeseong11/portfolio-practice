@@ -200,19 +200,21 @@
         <input type="text" id="book-form-title" />
         <div style="height: 12px"></div>
         <label for="book-form-contents" class="form-text">리뷰 내용</label>
-        <input id="book-form-contents" rows="10" cols="200" />
+        <textarea id="book-form-contents" rows="3"></textarea>
       </form>
       <div class="box">
+        <div id="book-file-upload">책 이미지 업로드</div>
         <span class="filetype">
           <span class="file-text"></span>
           <span class="file-btn">찾아보기</span>
-          <span class="file-select"
-            ><input
+          <span class="file-select">
+            <input
               type="file"
               class="input-file"
               size="3"
               onchange="uploadChange(this);"
-          /></span>
+            />
+          </span>
         </span>
       </div>
       <br />
