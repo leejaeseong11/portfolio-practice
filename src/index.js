@@ -24,3 +24,9 @@ function uploadChange(file) {
     }
   }
 }
+
+function openProjectReview(count) {
+  var review = document.getElementsByClassName('portfolio-contents-name')[
+    count
+  ];
+}

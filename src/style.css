@@ -78,7 +78,8 @@ a.banner-icons-links {
   font-size: 36px;
 }
 
-.portfolio-contents-name:hover {
+.portfolio-contents-name:hover,
+.book-contents-title:hover {
   text-decoration: underline;
 }
 
