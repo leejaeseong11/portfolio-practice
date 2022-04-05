@@ -27,7 +27,9 @@
   <body>
     <nav class="navbar">
       <div class="navbar-title">
-        <i class="fa-solid fa-bars"></i>
+        <a href="#" onclick="openMenu()">
+          <i id="menu" class="fa-solid fa-bars"></i>
+        </a>
         <a class="navbar-text" href="#">HYANGHAM PORTFOLIO</a>
       </div>
     </nav>
@@ -72,12 +74,50 @@
           </a>
         </div>
       </div>
-      <img
-        src="./src/assets/main/main1.JPG"
-        alt="banner-img"
-        width="100%"
-        height="100%"
-      />
+      <!--todo: fix img slide-->
+      <div id="slideShow">
+        <ul class="slides">
+          <li>
+            <img
+              class="banner-img"
+              src="./src/assets/main/main1.JPG"
+              alt="banner-img"
+            />
+          </li>
+          <li>
+            <img
+              class="banner-img"
+              src="./src/assets/main/main2.JPG"
+              alt="banner-img"
+            />
+          </li>
+          <li>
+            <img
+              class="banner-img"
+              src="./src/assets/main/main3.JPG"
+              alt="banner-img"
+            />
+          </li>
+          <li>
+            <img
+              class="banner-img"
+              src="./src/assets/main/main4.JPG"
+              alt="banner-img"
+            />
+          </li>
+          <li>
+            <img
+              class="banner-img"
+              src="./src/assets/main/main5.JPG"
+              alt="banner-img"
+            />
+          </li>
+        </ul>
+        <p class="controller">
+          <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 -->
+          <span class="prev">&lang;</span> <span class="next">&rang;</span>
+        </p>
+      </div>
     </article>
     <article class="main-portfolio">
       <div class="portfolio-top">
