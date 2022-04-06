@@ -49,6 +49,18 @@ a.banner-icons-links {
   padding-bottom: 16px;
 }
 
+#menu-bar {
+  display: none;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+  background-color: var(--background-color);
+  text-align: center;
+  padding: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;

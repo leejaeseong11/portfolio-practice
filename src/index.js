@@ -32,11 +32,11 @@ function openProjectReview(count) {
 }
 
 function openMenu() {
-  var menuState = document.getElementById('menu');
-  if (menuState.className == 'fa-solid fa-bars') {
-    menuState.className = 'fa-solid fa-xmark';
+  var menuBar = document.getElementById('menu-bar');
+  if (menuBar.style.display == 'none') {
+    menuBar.style.display = 'block';
   } else {
-    menuState.className = 'fa-solid fa-bars';
+    menuBar.style.display = 'none';
   }
 }
 

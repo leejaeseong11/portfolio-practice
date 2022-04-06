@@ -25,10 +25,22 @@
     <script defer type="text/javascript" src="./src/index.js"></script>
   </head>
   <body>
+    <!--todo: feat menu bar-->
+    <aside id="menu-bar">
+      <ul>
+        <li>
+          <a href="#"><i class="fa-solid fa-xmark"></i></a>
+        </li>
+        <li><a href="#">Top</a></li>
+        <li><a href="#project">프로젝트</a></li>
+        <li><a href="#diary">개발일지</a></li>
+        <li><a href="#book">독서기록</a></li>
+      </ul>
+    </aside>
     <nav class="navbar">
       <div class="navbar-title">
         <a href="#" onclick="openMenu()">
-          <i id="menu" class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-bars"></i>
         </a>
         <a class="navbar-text" href="#">HYANGHAM PORTFOLIO</a>
       </div>
@@ -75,7 +87,7 @@
         </div>
       </div>
       <!--todo: fix img slide-->
-      <div id="slideShow">
+      <!-- <div id="slideShow">
         <ul class="slides">
           <li>
             <img
@@ -114,14 +126,13 @@
           </li>
         </ul>
         <p class="controller">
-          <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 -->
           <span class="prev">&lang;</span> <span class="next">&rang;</span>
         </p>
-      </div>
+      </div> -->
     </article>
     <article class="main-portfolio">
       <div class="portfolio-top">
-        <h2 class="article-top-title">프로젝트</h2>
+        <h2 class="article-top-title" href="project">프로젝트</h2>
       </div>
       <hr />
       <div class="portfoli-main">
@@ -143,7 +154,7 @@
     <article class="diary-article">
       <div class="article-top">
         <div></div>
-        <h2 class="article-top-title">개발 일지</h2>
+        <h2 class="article-top-title" href="diary">개발일지</h2>
         <div>
           <button
             class="article-top-write"
@@ -188,7 +199,7 @@
     <article class="book-article">
       <div class="article-top">
         <div></div>
-        <h2 class="article-top-title">독서 기록</h2>
+        <h2 class="article-top-title" href="book">독서기록</h2>
         <button
           class="article-top-write"
           onclick="openBookForm()"
@@ -212,7 +223,7 @@
       <hr />
     </article>
     <aside id="diary-form-popup" class="aside-form-popup">
-      <h2>개발 일지 작성하기</h2>
+      <h2>개발일지 작성하기</h2>
       <form class="form-popup">
         <label for="diary-form-title" class="form-text">제목</label>
         <input type="text" id="diary-form-title" />
@@ -271,5 +282,13 @@
         취소하기
       </button>
     </aside>
+    <footer href="footer">
+      <p>Copyright © 2022 Jaeseong Lee(Hyangham).</p>
+      <p>All rights reserved.</p>
+      <p>
+        Contact Email:
+        <a href="mailto:easeon78@gmail.com">easeon78@gmail.com</a>
+      </p>
+    </footer>
   </body>
 </html>
