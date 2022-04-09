@@ -61,6 +61,17 @@ a.banner-icons-links {
   padding: 10px;
 }
 
+#meun-bar-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text-color);
+}
+
+.mouse-point :hover {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -70,29 +81,26 @@ li {
   list-style-type: none;
 }
 
-#slideShow {
+/* #slideShow {
   width: 100%;
   height: 100%;
   position: relative;
   margin: 50px auto;
-  overflow: hidden; /*리스트 형식으로 이미지를 일렬로 정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은 hidden으로 숨겨줘야됨*/
+  overflow: hidden; 
 }
 
 .slides {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%; /* 슬라이드할 사진과 마진 총 넓이 */
-  transition: left 0.5s ease-out; /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
+  width: 100%; 
+  transition: left 0.5s ease-out; 
 }
 
-/* 첫 번째 슬라이드 가운데에 정렬하기위해
-첫번째 슬라이드만 margin-left조정 */
 .slides li:first-child {
   margin-left: 100px;
 }
 
-/* 슬라이드들 옆으로 정렬 */
 .slides li:not(:last-child) {
   float: left;
   margin-right: 100px;
@@ -100,7 +108,7 @@ li {
 
 .slides li {
   float: left;
-}
+} */
 
 .controller span {
   position: absolute;
