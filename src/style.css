@@ -61,11 +61,20 @@ a.banner-icons-links {
   padding: 10px;
 }
 
-#meun-bar-list {
+#meun-bar-list li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+#meun-bar-list li a {
+  font-size: 20px;
   color: var(--text-color);
+}
+
+.fa-xmark {
+  color: var(--accent-color);
+  margin-bottom: 12px;
 }
 
 .mouse-point :hover {
