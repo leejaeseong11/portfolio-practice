@@ -25,18 +25,17 @@
     <script defer type="text/javascript" src="./src/index.js"></script>
   </head>
   <body>
-    <!--todo: feat menu bar-->
-    <aside id="menu-bar">
+    <aside id="menu-bar" onclick="closeMenu()">
       <ul id="meun-bar-list">
         <li>
-          <a class="mouse-point" onclick="closeMenu()">
+          <a class="mouse-point">
             <i class="fa-solid fa-xmark"></i>
           </a>
         </li>
-        <li><a href="#" onclick="closeMenu()">Top</a></li>
-        <li><a href="#project" onclick="closeMenu()">프로젝트</a></li>
-        <li><a href="#diary" onclick="closeMenu()">개발일지</a></li>
-        <li><a href="#book" onclick="closeMenu()">독서기록</a></li>
+        <li><a href="#">Top</a></li>
+        <li><a href="#project">프로젝트</a></li>
+        <li><a href="#diary">개발일지</a></li>
+        <li><a href="#book">독서기록</a></li>
       </ul>
     </aside>
     <nav class="navbar">
@@ -88,49 +87,12 @@
           </a>
         </div>
       </div>
-      <!--todo: fix img slide-->
-      <!-- <div id="slideShow">
-        <ul class="slides">
-          <li>
-            <img
-              class="banner-img"
-              src="./src/assets/main/main1.JPG"
-              alt="banner-img"
-            />
-          </li>
-          <li>
-            <img
-              class="banner-img"
-              src="./src/assets/main/main2.JPG"
-              alt="banner-img"
-            />
-          </li>
-          <li>
-            <img
-              class="banner-img"
-              src="./src/assets/main/main3.JPG"
-              alt="banner-img"
-            />
-          </li>
-          <li>
-            <img
-              class="banner-img"
-              src="./src/assets/main/main4.JPG"
-              alt="banner-img"
-            />
-          </li>
-          <li>
-            <img
-              class="banner-img"
-              src="./src/assets/main/main5.JPG"
-              alt="banner-img"
-            />
-          </li>
-        </ul>
-        <p class="controller">
-          <span class="prev">&lang;</span> <span class="next">&rang;</span>
-        </p>
-      </div> -->
+      <!--feat: banner slide-->
+      <img
+        class="banner-img"
+        src="./src/assets/main/main1.JPG"
+        alt="banner-img"
+      />
     </article>
     <article class="main-portfolio">
       <div class="portfolio-top">

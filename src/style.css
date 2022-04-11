@@ -22,11 +22,48 @@ a {
   text-decoration: none;
 }
 
-a.banner-icons-links {
-  color: var(--light-text-color);
-  margin-left: 12px;
+/* 햄버거 메뉴 */
+#menu-bar {
+  display: none;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+  background-color: var(--background-color);
+  text-align: center;
+  padding: 10px;
+  z-index: 2;
 }
 
+#meun-bar-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+#meun-bar-list li a {
+  font-size: 20px;
+  color: black;
+  margin-top: 8px;
+}
+
+#meun-bar-list li a:hover {
+  text-decoration: underline;
+}
+
+.fa-xmark {
+  color: red;
+  margin-bottom: 12px;
+}
+
+.mouse-point :hover {
+  cursor: pointer;
+}
+
+/* 네비게이션 바 */
 .navbar {
   margin-top: 8px;
   margin-bottom: 8px;
@@ -43,117 +80,21 @@ a.banner-icons-links {
   margin-left: 16px;
 }
 
+/* 메인 배너 */
+a.banner-icons-links {
+  color: var(--light-text-color);
+  margin-left: 12px;
+}
+
 .main-banner {
   position: relative;
   height: 100vh;
   padding-bottom: 16px;
 }
 
-#menu-bar {
-  display: none;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  opacity: 50%;
-  background-color: var(--background-color);
-  text-align: center;
-  padding: 10px;
-}
-
-#meun-bar-list li {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#meun-bar-list li a {
-  font-size: 20px;
-  color: var(--text-color);
-}
-
-.fa-xmark {
-  color: var(--accent-color);
-  margin-bottom: 12px;
-}
-
-.mouse-point :hover {
-  cursor: pointer;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-li {
-  list-style-type: none;
-}
-
-/* #slideShow {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  margin: 50px auto;
-  overflow: hidden; 
-}
-
-.slides {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  transition: left 0.5s ease-out; 
-}
-
-.slides li:first-child {
-  margin-left: 100px;
-}
-
-.slides li:not(:last-child) {
-  float: left;
-  margin-right: 100px;
-}
-
-.slides li {
-  float: left;
-} */
-
-.controller span {
-  position: absolute;
-  background-color: transparent;
-  color: black;
-  text-align: center;
-  border-radius: 50%;
-  padding: 10px 20px;
-  top: 50%;
-  font-size: 1.3em;
-  cursor: pointer;
-}
-
-/* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
-.controller span:hover {
-  background-color: rgba(128, 128, 128, 0.11);
-}
-
-.prev {
-  left: 10px;
-}
-
-/* 이전 화살표에 마우스 커서가 올라가 있을때 
-이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
-.prev:hover {
-  transform: translateX(-10px);
-}
-
-.next {
-  right: 10px;
-}
-
-/* 다음 화살표에 마우스 커서가 올라가 있을때 
-이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
-.next:hover {
-  transform: translateX(10px);
+.banner-img {
+  width: 100vw;
+  height: 100vh;
 }
 
 .banner-title {
@@ -164,7 +105,6 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* https://stackoverflow.com/questions/46184458/transform-translate-50-50 */
 }
 
 .banner-icons {
