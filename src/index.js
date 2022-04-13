@@ -61,5 +61,5 @@ function showSlides() {
   if (slideIndex === totalSlides) {
     slideIndex = 0;
   }
-  setTimeout(showSlides, 2000);
+  setTimeout(showSlides, 3000);
 }
