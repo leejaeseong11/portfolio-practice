@@ -163,6 +163,12 @@ ul {
   border: solid var(--text-color) 1px;
 }
 
+.portfolio-contents a img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--text-color);
+}
+
 .portfolio-contents-name:hover,
 .book-contents-title:hover {
   text-decoration: underline;
@@ -171,7 +177,7 @@ ul {
 .article-top {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
@@ -179,8 +185,6 @@ ul {
   color: var(--text-color);
   cursor: pointer;
   font-size: 36px;
-  height: fit-content;
-  justify-content: center;
   border: none;
   background-color: var(--background-color);
 }
