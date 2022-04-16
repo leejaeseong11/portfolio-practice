@@ -149,7 +149,7 @@ ul {
 
 /* 프로젝트 */
 .main-article {
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .article-top-title {
@@ -163,10 +163,19 @@ ul {
   border: solid var(--text-color) 1px;
 }
 
-.portfolio-contents a img {
-  max-width: 100%;
-  height: auto;
+.portfolio-contents a {
+  overflow: hidden;
   border: 1px solid var(--text-color);
+  display: inline-block;
+}
+
+.portfolio-contents-img {
+  transition: all 0.5s linear;
+}
+
+.portfolio-contents-img:hover {
+  filter: opacity(70%);
+  transform: scale(1.3);
 }
 
 .portfolio-contents-name:hover,
