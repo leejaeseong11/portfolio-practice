@@ -163,7 +163,17 @@ ul {
   border: solid var(--text-color) 1px;
 }
 
-.portfolio-contents a {
+.portfolio-main {
+  display: flex;
+}
+
+.portfolio-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-contents-link {
   overflow: hidden;
   border: 1px solid var(--text-color);
   display: inline-block;
@@ -171,14 +181,20 @@ ul {
 
 .portfolio-contents-img {
   transition: all 0.5s linear;
+  width: 30vw;
+  height: 50vh;
 }
 
 .portfolio-contents-img:hover {
-  filter: opacity(70%);
+  filter: opacity(50%);
   transform: scale(1.3);
 }
 
-.portfolio-contents-name:hover,
+.portfolio-contents-name {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
 .book-contents-title:hover {
   text-decoration: underline;
 }
