@@ -63,3 +63,17 @@ function showSlides() {
   }
   setTimeout(showSlides, 3000);
 }
+
+// 프로젝트 mouseover 시 프로젝트 설명 나타남
+var portfolioContentsImg = document.querySelectorAll('.portfolio-contents-img');
+
+for (var i = 0; i < portfolioContentsImg.length; i++) {
+  var portfolioContentsExplanation = document.querySelectorAll(
+    '.portfolio-contents-explanation'
+  )[i];
+  portfolioContentsImg[i].addEventListener('mouseover', () => {
+    console.log(this.parentNode);
+    portfolioContentsExplanation.display = 'block';
+    console.log('TEST');
+  });
+}
