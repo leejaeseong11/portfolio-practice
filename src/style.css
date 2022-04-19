@@ -188,17 +188,17 @@ ul {
 }
 
 .portfolio-contents-img:hover {
-  filter: opacity(50%);
+  filter: opacity(10%);
   transform: scale(1.3);
 }
 
 .portfolio-contents-name {
+  font-size: 18px;
   margin-top: 12px;
   font-weight: bold;
 }
 
-.portfolio-contents-name:hover,
-.book-contents-title:hover {
+.portfolio-contents-name:hover {
   text-decoration: underline;
 }
 
@@ -210,6 +210,7 @@ ul {
   transform: translate(-50%, -50%);
 }
 
+/* todo */
 .article-top {
   display: flex;
   flex-direction: row;
@@ -384,4 +385,8 @@ ul {
 
 #book-file-upload {
   margin-bottom: 8px;
+}
+
+.book-contents-title:hover {
+  text-decoration: underline;
 }
