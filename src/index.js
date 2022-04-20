@@ -37,7 +37,7 @@ for (var i = 0; i < portfolioContentsImg.length; i++) {
   });
 }
 
-// todo
+// 개발일지 작성 폼 다루기
 function openDiaryForm() {
   document.getElementById('diary-form-popup').style.display = 'block';
 }

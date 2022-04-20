@@ -1,6 +1,6 @@
-var masterPassword = '1';
+var masterPassword = '1'; // 관리자용 암호
 
-// Initialize Firebase
+// Firebase 설정
 const config = {
   apiKey: 'AIzaSyBwzEE5THOJ6RdHkxu-82_8Eg4xqcZEYFE',
   authDomain: 'hyangham-portfolio.firebaseapp.com',

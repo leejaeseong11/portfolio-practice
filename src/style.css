@@ -210,7 +210,7 @@ ul {
   transform: translate(-50%, -50%);
 }
 
-/* todo */
+/* 개발일지 */
 .article-top {
   display: flex;
   flex-direction: row;
@@ -218,7 +218,7 @@ ul {
   justify-content: space-between;
 }
 
-.article-top-write {
+.diary-write {
   color: var(--text-color);
   cursor: pointer;
   font-size: 36px;
@@ -226,7 +226,7 @@ ul {
   background-color: var(--background-color);
 }
 
-.article-top-write:hover {
+.diary-write:hover {
   text-decoration: underline;
 }
 
