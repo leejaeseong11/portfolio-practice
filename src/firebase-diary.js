@@ -55,7 +55,7 @@ diaryRef.on('child_added', function (snapshot) {
   var diaryTimestamp = data.timestamp;
   var diaryKey = snapshot.key;
   var newDiaryResultTop = document.createElement('div');
-  newDiaryResultTop.setAttribute('class', 'diary-result-top');
+  newDiaryResultTop.setAttribute('class', 'diary-result-top'); // 일지 글 제목 및 내용
   var newDiaryTitle = document.createElement('div');
   newDiaryTitle.setAttribute('class', 'diary-result-title');
   newDiaryTitle.setAttribute('id', diaryKey);
@@ -64,7 +64,7 @@ diaryRef.on('child_added', function (snapshot) {
     var diaryResultContentOne = document.getElementById('contents-' + diaryKey);
 
     diaryResultContentOne.style.display =
-      diaryResultContentOne.style.display == 'none' ? 'block' : 'none';
+      diaryResultContentOne.style.display == 'block' ? 'none' : 'block';
   });
   newDiaryResultTop.appendChild(newDiaryTitle);
 
@@ -90,7 +90,7 @@ diaryRef.on('child_added', function (snapshot) {
   diaryResult.appendChild(newDiaryContents);
 });
 
-// 메세지 저장
+// 개발 일지 저장
 function saveDiaryData() {
   var password = document.getElementById('diary-form-password');
   if (password.value == '') {
@@ -127,7 +127,7 @@ function saveDiaryData() {
   }
 }
 
-// 삭제
+// 개발 일지 삭제
 function deleteDiaryData() {
   var dialog = document.getElementById('diary-delete-dialog');
 
@@ -138,7 +138,7 @@ function deleteDiaryData() {
   }
 }
 
-// 전부 삭제되면 결과창의 내용도 지워 준다.
+// 전부 삭제되면 결과창의 내용도 지움
 diaryRef.on('child_removed', function (snapshot) {
   diaryTitleResultField.innerHTML = '';
   diaryContentsResultField.innerHTML = '';
@@ -146,7 +146,7 @@ diaryRef.on('child_removed', function (snapshot) {
 });
 
 // 개발 일지 dialog 삭제 기능
-function onClose() {
+function deleteDiaryAlert() {
   if (diaryDeletePasswrod.value == masterPassword) {
     database.ref('diary').remove();
   } else {
@@ -156,7 +156,7 @@ function onClose() {
 
 var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
 var diaryDeletePasswrod = document.getElementById('diary-delete-password');
-diaryDeleteConfirm.addEventListener('click', onClose);
+diaryDeleteConfirm.addEventListener('click', deleteDiaryAlert);
 
 // 해리포터와 마법사의 돌  1, 2
 // 덤블도어의 수련회 메타에 타락할 수 밖에 없었던 슬리데린..

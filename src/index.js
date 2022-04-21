@@ -37,7 +37,7 @@ for (var i = 0; i < portfolioContentsImg.length; i++) {
   });
 }
 
-// 개발일지 작성 폼 다루기
+// 개발일지 작성 폼 open/close
 function openDiaryForm() {
   document.getElementById('diary-form-popup').style.display = 'block';
 }
@@ -46,6 +46,7 @@ function closeDiaryForm() {
   document.getElementById('diary-form-popup').style.display = 'none';
 }
 
+// 독서기록 작성 폼 open/close
 function openBookForm() {
   document.getElementById('book-form-popup').style.display = 'block';
 }

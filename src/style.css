@@ -148,6 +148,13 @@ ul {
 }
 
 /* 프로젝트 */
+.article-top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
 .main-article {
   margin-top: 120px;
 }
@@ -211,13 +218,6 @@ ul {
 }
 
 /* 개발일지 */
-.article-top {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
 .diary-write {
   color: var(--text-color);
   cursor: pointer;
@@ -273,6 +273,7 @@ ul {
 }
 
 .diary-result-contents {
+  display: none;
   padding-bottom: 8px;
   background-color: var(--light-text-color);
 }
