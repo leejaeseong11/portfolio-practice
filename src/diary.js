@@ -18,9 +18,7 @@ var diaryContentsField = document.getElementById('diary-form-contents');
 var diaryResult = document.getElementById('diary-result');
 var diaryTitleResultField = document.getElementById('diary-result-title');
 var diaryContentsResultField = document.getElementById('diary-result-contents');
-var diaryTimestampResultField = document.getElementById(
-  'diary-result-timestamp'
-);
+var diaryTimestampResultField = document.getElementById('diary-result-timestamp');
 
 // DB 가져오기
 var database = firebase.database();
@@ -30,23 +28,10 @@ function guid() {
   function s4() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
   }
-  return (
-    s4() +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    '-' +
-    s4() +
-    s4() +
-    s4()
-  );
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-// 개발 일지 읽기
+// 방명록 읽기
 var diaryRef = database.ref('diary');
 diaryRef.on('child_added', function (snapshot) {
   var data = snapshot.val();
@@ -63,8 +48,7 @@ diaryRef.on('child_added', function (snapshot) {
   newDiaryTitle.addEventListener('click', () => {
     var diaryResultContentOne = document.getElementById('contents-' + diaryKey);
 
-    diaryResultContentOne.style.display =
-      diaryResultContentOne.style.display == 'block' ? 'none' : 'block';
+    diaryResultContentOne.style.display = diaryResultContentOne.style.display == 'block' ? 'none' : 'block';
   });
   newDiaryResultTop.appendChild(newDiaryTitle);
 
@@ -76,8 +60,9 @@ diaryRef.on('child_added', function (snapshot) {
   var diaryDeleteButton = document.createElement('button');
   diaryDeleteButton.setAttribute('type', 'button');
   diaryDeleteButton.setAttribute('class', 'diary-delete-button');
+  diaryDeleteButton.setAttribute('id', diaryKey);
   diaryDeleteButton.innerHTML = '삭제';
-  // todo: fix delete bug
+
   diaryDeleteButton.addEventListener('click', deleteDiaryData);
   newDiaryResultTop.appendChild(diaryDeleteButton);
 
@@ -90,7 +75,7 @@ diaryRef.on('child_added', function (snapshot) {
   diaryResult.appendChild(newDiaryContents);
 });
 
-// 개발 일지 저장
+// 방명록 저장
 function saveDiaryData() {
   var password = document.getElementById('diary-form-password');
   if (password.value == '') {
@@ -127,10 +112,10 @@ function saveDiaryData() {
   }
 }
 
-// 개발 일지 삭제
-function deleteDiaryData() {
+// 방명록 삭제
+function deleteDiaryData(e) {
   var dialog = document.getElementById('diary-delete-dialog');
-
+  deleteId = e.target.id;
   if (typeof dialog.showModal === 'function') {
     dialog.showModal();
   } else {
@@ -145,10 +130,11 @@ diaryRef.on('child_removed', function (snapshot) {
   diaryTimestampResultField.innerHTML = '';
 });
 
-// 개발 일지 dialog 삭제 기능
+// 방명록 dialog 삭제 기능
 function deleteDiaryAlert() {
   if (diaryDeletePasswrod.value == masterPassword) {
-    database.ref('diary').remove();
+    console.log(deleteId);
+    database.ref('diary').child(deleteId).remove();
   } else {
     alert('암호를 틀렸습니다');
   }
@@ -156,7 +142,5 @@ function deleteDiaryAlert() {
 
 var diaryDeleteConfirm = document.getElementById('diary-delete-confirm');
 var diaryDeletePasswrod = document.getElementById('diary-delete-password');
+var deleteId = '';
 diaryDeleteConfirm.addEventListener('click', deleteDiaryAlert);
-
-// 해리포터와 마법사의 돌  1, 2
-// 덤블도어의 수련회 메타에 타락할 수 밖에 없었던 슬리데린..
